@@ -20,10 +20,6 @@ using std::string;
 vector<Student_info> extract_fails(vector<Student_info>& v);
 
 #ifdef _MSC_VER
-// The definition of Student_info::operator< is necessary
-// under Microsoft Visual C++ because the compiler does not
-// support the ability to pass a comparison function as an
-// argument to vector::sort
 bool operator<(const Student_info& x, const Student_info& y)
 {
 	return compare(x, y);
@@ -64,10 +60,10 @@ int main()
 	for (i = fails.begin(); i != fails.end(); ++i)
 		cout << i->name << " " << grade(*i) << endl;//разыменованный итератор i* указывает на ntreobq объект в векторе fails и передается в функ. grade() как "const Student_info& s" как ссылка на объект s - те на студента.
 		//cout << (*i).name << " " << grade(*i) << endl;
-		
+
 	if (vs.size() != 0)//vs.size() уменьшилось на величину студентов, оценки которых < 60
 	{
-	    cout << "список остальных студентов : " << endl;	
+	    cout << "список остальных студентов : " << endl;
 	    for (i = vs.begin(); i != vs.end(); ++i)
 		cout << i->name << " " << grade(*i) << endl;
 	}
