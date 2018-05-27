@@ -1,0 +1,25 @@
+#include <list>
+#include "Student_info.h"
+#include "grade.h"
+
+using std::list;
+// version 4: use `list' instead of `vector'
+list<Student_info> extract_fails(list<Student_info>& students)
+{
+	list<Student_info> fail;
+#ifdef _MSC_VER
+	std::list<Student_info>::iterator iter = students.begin();//определяем начальный итератор контейнера по имени iter 
+#else
+	list<Student_info>::iterator iter = students.begin();
+#endif
+
+	while (iter != students.end()) {
+		if (fgrade(*iter)) {//ф-ции fgrade() передаем черех итератор 1-й и послед. элементы списка, пред. собой заполненные объекты структуры Student_info
+			fail.push_back(*iter);
+			iter = students.erase(iter);//удаляет текущий объект после его загона в list fail и переуст. итератор на след. элемент. Его возвращ. ф-я erase(iter). 
+		} else //если удаления нет - просто перемещает итератор на след элемент списка
+			++iter;
+	}
+	return fail; //возвращ. список со. студ. у котор. оценка < 60.
+}
+
