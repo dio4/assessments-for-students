@@ -1,7 +1,7 @@
 // расчет медианы значений оценок каждого учащегося
-#include <algorithm>    // to get the declaration of `sort'
-#include <stdexcept>    // to get the declaration of `domain_error'
-#include <vector>       // to get the declaration of `vector'
+#include <algorithm>    // для `sort'
+#include <stdexcept>    // для исключения `domain_error'
+#include <vector>       // для  `vector'
 
 using std::domain_error;   using std::sort;   using std::vector;
 
