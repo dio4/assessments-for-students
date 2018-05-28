@@ -4,7 +4,7 @@
 
 using std::vector;
 
-// version 3: iterators but no indexing; still potentially slow
+// версия на итераторах
 
 /*ф-я принимает ссылку на вектор students и с пом-ю итераторов передает кажд. элемент (структуру, сод. инф. о студенте) ф-ции fgrade(*iter) см. grade.cc внизу, котор. возвр. True, если оценка студента < 60 и False наоборот.*/
 vector<Student_info> extract_fails(vector<Student_info>& students)
